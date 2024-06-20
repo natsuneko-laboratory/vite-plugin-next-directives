@@ -1,0 +1,46 @@
+{
+  "name": "@natsuneko-laboratory/vite-plugin-next-directives",
+  "version": "0.1.0",
+  "description": "Support use client/server directives in Vite",
+  "type": "module",
+  "main": "dist/index.cjs.cjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "tsc && npm run build:vite && npm run build:tsc",
+    "build:vite": "vite build",
+    "build:tsc": "rm -f tsconfig.types.tsbuildinfo && tsc --project ./tsconfig.types.json",
+    "build:esm": "npx tsx node_modules/@natsuneko-laboratory/kiana/bin/esm-exports.ts --pattern **/*.mjs --entrypoint dist/index.mjs",
+    "test": "vitest",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "theme",
+    "next"
+  ],
+  "author": "Natsune Mochizuki",
+  "repository": "https://github.com/natsuneko-laboratory/vite-plugin-next-directives.git",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.1",
+    "@natsuneko-laboratory/kiana": "^1.1.0",
+    "@types/node": "^20.14.6",
+    "next": "15.0.0-rc.0",
+    "rollup": "^4.18.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.3.1"
+  },
+  "peerDependencies": {
+    "vite": "^5.3.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
