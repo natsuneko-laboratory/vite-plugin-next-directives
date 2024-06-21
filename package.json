@@ -25,6 +25,10 @@
     "theme",
     "next"
   ],
+  "files": [
+    "src",
+    "dist"
+  ],
   "author": "Natsune Mochizuki",
   "repository": "https://github.com/natsuneko-laboratory/vite-plugin-next-directives.git",
   "license": "MIT",
